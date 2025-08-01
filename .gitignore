@@ -15,6 +15,12 @@ crash.log
 !example.tfvars  # Keep a sample variable file for reference
 *.tfplan
 
+# Terraform plan files
+*.tfplan
+*.tfplan.*
+*.plan
+*.out
+
 # Ignore Overrides
 override.tf
 override.tf.json
@@ -25,6 +31,5 @@ override.tf.json
 .DS_Store
 Thumbs.db
 *.pem
-/environments/development/bastion-access.sh
-
+**/bastion-access.sh
 .env
