@@ -1,0 +1,30 @@
+# Terraform State Files
+terraform.tfstate
+terraform.tfstate.backup
+terraform.tfstate.d/
+
+# Terraform Cache and Logs
+.terraform/
+.terraform.lock.hcl
+crash.log
+
+# Ignore Terraform Variables (Sensitive Data)
+*.tfvars
+*.tfvars.json
+*.auto.tfvars
+!example.tfvars  # Keep a sample variable file for reference
+*.tfplan
+
+# Ignore Overrides
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore Editor and System Files
+.DS_Store
+Thumbs.db
+*.pem
+/environments/development/bastion-access-local.sh
+
+.env
