@@ -26,5 +26,6 @@ override.tf.json
 Thumbs.db
 *.pem
 /environments/development/bastion-access-local.sh
+/environments/development/bastion-access.sh
 
 .env
