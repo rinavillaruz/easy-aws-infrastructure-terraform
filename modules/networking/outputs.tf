@@ -13,3 +13,7 @@ output "public_subnets" {
 output "private_subnets" {
   value = aws_subnet.private_subnets
 }
+
+output public_subnet_cidrs {
+  value = var.public_subnet_cidrs
+}

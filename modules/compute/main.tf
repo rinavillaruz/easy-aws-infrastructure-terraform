@@ -24,13 +24,13 @@ resource "aws_eip_association" "public_eip_assoc" {
 }
 
 resource "aws_instance" "private_instances" {
-  for_each = { "0" = 0, "1" = 1 }
+  for_each                = { for index, ip in var.private_instance_private_ips : index => ip }
   ami                     = "ami-084568db4383264d4"
   instance_type           = "t3.micro"
   key_name                = var.key_pair_name
   vpc_security_group_ids  = [var.private_security_group_id]
-  subnet_id               = var.private_subnets[each.value].id
-  private_ip              = var.private_instance_private_ips[each.value]
+  subnet_id               = var.private_subnets[each.key].id
+  private_ip              = var.private_instance_private_ips[each.key]
 
   root_block_device {
     volume_size           = 20
@@ -39,6 +39,6 @@ resource "aws_instance" "private_instances" {
   }
 
   tags = {
-    Name = "Private Instance ${each.value + 1}"
+    Name = "Private Instance ${each.key + 1}"
   }
 }
